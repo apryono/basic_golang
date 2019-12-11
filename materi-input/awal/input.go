@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	//untuk meminta inputan dari keyboard
 	/*
 		var angka1, angka2, hasil int
 		fmt.Print("Masukkan Angka 1 : ")

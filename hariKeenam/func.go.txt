@@ -1,0 +1,15 @@
+package main
+
+import "fmt"
+
+func isEven(angka int) bool {
+	if angka%2 == 0 {
+		return true
+	}
+
+	return false
+}
+
+func main() {
+	fmt.Println(isEven(11))
+}

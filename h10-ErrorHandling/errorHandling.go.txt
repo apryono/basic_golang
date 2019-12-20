@@ -1,0 +1,56 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+	"log"
+)
+
+/*
+	Error Handling,
+*/
+
+// membuat fungsi error handling
+func bagi(a, b float32) (float32, error) {
+	if b == 0 {
+		// fungsi errors.New() untuk membuat fungsi custom
+		var err = errors.New("Pembagi tidak boleh nol")
+		return 0, err // Jika pembagi nya 0 , maka akan mengembalikan nilai hasil nya 0 , dan mengirim catatan error nya
+	}
+
+	if a == 0 {
+		var err = errors.New("Pembilang tidak boleh nol")
+		return 0, err
+		/*
+			Jika pembilang nya sama dengan 0 maka akan mengembalikan nilai
+			hasil nya sama dengan 0, dan mengirim catatan errornya
+		*/
+	}
+
+	/*
+		Jika tidak validasi diatas dilewati atau tidak ada masalah ,
+		maka akan mengembalikan nilai hasil pembagi a/b, dan mengembalikan catatan bahwa tidak ada error
+	*/
+	return a / b, nil // Jika Tidak ada Error
+}
+
+func main() {
+	/*
+		Saat penggunaan fungsi ERROR Handling , kita buat validasi nya kembali, dengan membuat dua variabel
+		karena pada fungsi nya mengirim dua value , yaitu value hasil dan value error
+		Cth: variabel nya hasil, err := bagi(5,2)
+	*/
+	hasil, err := bagi(5, 2) // memanggil fungsi bagi dan mengisi nilai nya (5,2)
+
+	/*
+		Disini di cek kembali dengan validasi jika err tidak sama dengan nil ( err != nil ),
+		artinya error nya true atau dalam keadaan error
+	*/
+	if err != nil {
+		log.Fatal("Pembagian gagal karena : ", err.Error())
+	} else {
+		// Jika tidak mengalami error maka akan menampilkan hasil dari pembagian nya
+		fmt.Println("Pembagian berhasil : ", hasil)
+	}
+
+}

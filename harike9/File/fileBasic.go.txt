@@ -1,0 +1,57 @@
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+)
+
+var path = "C:/Users/Lenovo/go/src/materiGolang/harike9/File/resource/form-mahasiswa.txt"
+
+func main() {
+	// createFile()
+	// writeToFile()
+	readFile()
+}
+
+func createFile() {
+	var file, _ = os.Create(path)
+	file.Close()
+}
+
+func writeToFile() {
+	var file, err = os.OpenFile(path, os.O_RDWR|os.O_CREATE, 0664)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	file.WriteString("Hello !")
+	file.Sync()
+}
+
+func readFile() {
+	var file, err = os.OpenFile(path, os.O_RDONLY, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	/*
+		var text = make([]byte, batas-sekali baca)
+		isi file itu hello
+		cth : var text = make([]byte, 2)
+		hasil :>>
+		he // batas nya ada 2 , tetapi tetap menampilkan keseluruhan
+
+		ll
+		o
+
+	*/
+	var text = make([]byte, 100)
+	for {
+		n, _ := file.Read(text)
+		if n == 0 {
+			break
+		}
+		fmt.Println(string(text))
+	}
+}

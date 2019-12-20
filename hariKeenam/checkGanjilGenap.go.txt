@@ -1,0 +1,43 @@
+package main
+
+import "fmt"
+
+func main() {
+	isOdd, isValid := isOdd(11)
+	if !isValid {
+		fmt.Println("angka tidak valid")
+	} else {
+		if !isOdd {
+			fmt.Println("Angka Genap")
+		} else {
+			fmt.Println("Angka Ganjil")
+		}
+	}
+}
+
+func isOdd(angka int) (odd bool, valid bool) {
+	if angka <= 0 {
+		odd = false
+		valid = false
+	} else {
+		if angka%2 == 0 {
+			odd = false
+			valid = true
+		} else {
+			odd = true
+			valid = true
+		}
+	}
+	return
+}
+
+func isEven(angka int) (bool, bool) {
+	if angka <= 0 {
+		return false, false
+	}
+	if angka%2 == 0 {
+		return true, false
+	}
+	return false, true
+
+}

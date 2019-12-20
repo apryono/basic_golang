@@ -1,0 +1,12 @@
+ryo, 23
+agus, 24
+usia biasa .ryo, 23
+agus, 24
+ryo, 23
+agus, 24
+       ryo, 23
+      agus, 24
+ryo       , 23
+agus      , 24
+ryo    , 23
+agus   , 24
